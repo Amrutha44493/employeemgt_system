@@ -1,0 +1,18 @@
+@extends('layouts.app')
+@section('title', 'Add Employee')
+
+@section('content')
+<div class="max-w-3xl bg-white p-6 rounded-xl shadow">
+    <h1 class="text-xl font-bold mb-5">Add Employee</h1>
+
+    <form method="POST" action="{{ route('employees.store') }}" enctype="multipart/form-data">
+        @csrf
+        @include('employees._form')
+
+        <div class="mt-6 flex gap-3">
+            <button class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700">Save</button>
+            <a href="{{ route('employees.index') }}" class="px-5 py-2 text-gray-600">Cancel</a>
+        </div>
+    </form>
+</div>
+@endsection
